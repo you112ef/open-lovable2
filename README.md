@@ -33,7 +33,44 @@ GROQ_API_KEY=your_groq_api_key  # Get from https://console.groq.com (Fast infere
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)  
+Open [http://localhost:3000](http://localhost:3000)
+
+## 🚀 Deploy to Cloudflare Pages
+
+This project is fully configured and ready to deploy on Cloudflare Pages with all features intact.
+
+### Quick Deploy Steps:
+
+1. **Check Compatibility**
+```bash
+npm run check:cloudflare
+```
+
+2. **Build for Cloudflare**
+```bash
+npm run build
+npm run build:cloudflare
+```
+
+3. **Deploy Options:**
+   - **Dashboard**: Connect your GitHub repo to [Cloudflare Pages](https://pages.cloudflare.com/)
+   - **CLI**: `npm run deploy` (requires Wrangler CLI setup)
+
+4. **Environment Variables**: Add all variables from `.env.example` to your Cloudflare Pages settings
+
+### Build Configuration:
+- **Framework**: Next.js
+- **Build Command**: `npm run build && npm run build:cloudflare`
+- **Build Directory**: `.vercel/output/static`
+- **Node Version**: 20.x
+
+📖 **For detailed deployment instructions, see [`CLOUDFLARE_DEPLOYMENT.md`](./CLOUDFLARE_DEPLOYMENT.md)**
+
+## 🔧 Additional Scripts
+
+- `npm run preview` - Preview Cloudflare build locally
+- `npm run check:cloudflare` - Validate Cloudflare compatibility
+- `npm run deploy` - Build and deploy to Cloudflare (CLI)
 
 ## License
 

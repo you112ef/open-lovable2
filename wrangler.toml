@@ -1,0 +1,30 @@
+# إعدادات Cloudflare Pages لمشروع open-lovable2
+
+name = "open-lovable2"
+compatibility_date = "2024-08-21"
+compatibility_flags = ["nodejs_compat"]
+
+# إعدادات Pages
+pages_build_output_dir = ".vercel/output/static"
+
+# متغيرات البيئة المطلوبة (يجب إضافتها في لوحة تحكم Cloudflare)
+[vars]
+NODE_ENV = "production"
+
+# تحديد النوع كـ Pages
+[env.production]
+name = "open-lovable2"
+
+# قيود الموارد
+[[env.production.services]]
+name = "open-lovable2"
+
+# إعدادات إضافية للأمان
+[env.production.vars]
+NODE_ENV = "production"
+
+# إعدادات Build
+[[build]]
+command = "npm run build && npm run build:cloudflare"
+cwd = ""
+watch_dir = ""

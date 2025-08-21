@@ -6,12 +6,16 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:cloudflare": "npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "next lint",
+    "preview": "npm run build:cloudflare && wrangler pages dev .vercel/output/static --compatibility-date=2024-08-21 --compatibility-flags=nodejs_compat",
+    "deploy": "npm run build && npm run build:cloudflare && wrangler pages deploy .vercel/output/static",
     "test:integration": "node tests/e2b-integration.test.js",
     "test:api": "node tests/api-endpoints.test.js",
     "test:code": "node tests/code-execution.test.js",
-    "test:all": "npm run test:integration && npm run test:api && npm run test:code"
+    "test:all": "npm run test:integration && npm run test:api && npm run test:code",
+    "check:cloudflare": "node scripts/cloudflare-compatibility-check.js"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^2.0.1",
@@ -43,6 +47,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.7",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "^20",
@@ -51,6 +56,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.4.3",
     "tailwindcss": "^4.1.11",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^3.86.1"
   }
 }
