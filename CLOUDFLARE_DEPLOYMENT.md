@@ -120,6 +120,8 @@ NODE_ENV=production
 - وجود جميع المتغيرات البيئية المطلوبة
 - عدم وجود أخطاء TypeScript
 
+**⚠️ مشكلة شائعة**: إذا واجهت خطأ `useSearchParams() should be wrapped in a suspense boundary`، راجع [`BUILD_TROUBLESHOOTING.md`](./BUILD_TROUBLESHOOTING.md) للحل المفصل.
+
 ### مشاكل API Routes  
 إذا لم تعمل API routes:
 - تأكد من إضافة جميع المتغيرات البيئية
